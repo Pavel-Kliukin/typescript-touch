@@ -21,7 +21,7 @@ const UserSingle = () => {
         dispatch(getUserAlbums(user.id))
       }
     }
-  },[dispatch, users, userId])
+  },[dispatch, users])
 
 
 
