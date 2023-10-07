@@ -46,19 +46,12 @@ const initialState: UsersState = {
   usersAlbums:[],
 }
 
-
-const now = new Date()
-const timeString = `${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}.${now.getMilliseconds()}`
-
 export const getUsers = createAsyncThunk('users/getUsers', async () => {
-  console.log("getUsers started at " + timeString);
   const response = await axios.get<User[]>('https://jsonplaceholder.typicode.com/users')
   return response.data
 })
 
 export const getUserAlbums = createAsyncThunk('users/getUsersAlbums', async (userId: number) => {
-  
-  console.log("getUserAlbums started at " + timeString + " for user " + userId);
   const response = await axios.get<Album[]>(`https://jsonplaceholder.typicode.com/users/${userId}/albums`)
   return response.data
 })
